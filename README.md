@@ -20,11 +20,21 @@ Follow the instructions on this [repo](https://github.com/udacity/deep-reinforce
 
 Then follow the instructions on this [section](https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet).
 
+## Running the Code
+
+After installing all the dependencies. You can head to the notebook and run the cells. Hyperparameters are configured so that the agent should obtain almost the same results as me.
+
 ## Method
 
 Code was taken from my previous project on the repository [RL-Reacher-Continous-Control](https://github.com/Mashbrow/RL-Reacher-Continuous-Control) and adapted so that it can resolve the task.
 
 I started by changing things in the architecture model itself. I used only one neural network for the actor and one neural network for the critic. Hence each agent is training the same models. Then I tried exploring various hyperparameters that led me to observe that training was unstable. It led me to add Batchnorm and to modify ReLU functions by Leaky ReLU to the models and to reduce the noise to finally resolve the task.
+
+## Future Work
+
+- Try different architectures and other hyperparameters to reach a better score in less time.
+- Implement other algorithms used in multi-agent reinforcement learning.
+- Stay in touch with the news in the reinforcement learning domain. 
 
 ## What contains this repository ? 
 
