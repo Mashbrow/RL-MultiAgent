@@ -2,6 +2,8 @@
 
 ## Introduction
 
+![Video of the environment](tennis_agent.gif "A video of mine showing agents playing tennis")
+
 This project is part of the Udacity Nanodegree on Reinforcement Learning and aims at training two agents to play tennis.
 
 Description:
