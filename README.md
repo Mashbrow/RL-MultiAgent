@@ -8,7 +8,7 @@ This project is part of the Udacity Nanodegree on Reinforcement Learning and aim
 
 Description:
 
-- Reward: +0.1 if the agent hits the ball over the net, -0.01 if the agent lets the ball hit the ground or hits the ball out of bounds. The more the ball stay in game the more the reward.
+- Reward: +0.1 if the agent hits the ball over the net, -0.01 if the agent lets the ball hit the ground or hits the ball out of bounds. The more the ball stays in game the more the reward.
 - Observation Space: 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own local observation of the space
 - Action State: 2-dimensional continuous space corresponding to jumping and movement toward (or away) from the net.
 
@@ -24,7 +24,12 @@ Then follow the instructions on this [section](https://github.com/udacity/deep-r
 
 Code was taken from my previous project on the repository [RL-Reacher-Continous-Control](https://github.com/Mashbrow/RL-Reacher-Continuous-Control) and adapted so that it can resolve the task.
 
-I started by changing things in the architecture model itself. I used only one neural network for the actor and one neural network for the critic.
-
+I started by changing things in the architecture model itself. I used only one neural network for the actor and one neural network for the critic. Hence each agent is training the same models. Then I tried exploring various hyperparameters that led me to observe that training was unstable. It led me to add Batchnorm and to modify ReLU functions by Leaky ReLU to the models and to reduce the noise to finally resolve the task.
 
 ## What contains this repository ? 
+
+- A notebook containing the code to train an agent to solve the task.
+- A .py file containing the architecture of MADDPG Agent.
+- A .py file containing the architecture model.
+- Two .pth files containing the weights of the Actor and the Critic models.
+- A report describing the architecture and the hyperparameters used to solve the task as well as my approach to solve the task.
