@@ -22,4 +22,9 @@ Then follow the instructions on this [section](https://github.com/udacity/deep-r
 
 ## Method
 
+Code was taken from my previous project on the repository [RL-Reacher-Continous-Control](https://github.com/Mashbrow/RL-Reacher-Continuous-Control) and adapted so that it can resolve the task.
+
+I started by changing things in the architecture model itself. I used only one neural network for the actor and one neural network for the critic.
+
+
 ## What contains this repository ? 
