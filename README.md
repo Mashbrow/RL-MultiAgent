@@ -16,9 +16,39 @@ The task is episodic and considered solved when the agents get an average reward
 
 ## Installation
 
-Follow the instructions on this [repo](https://github.com/udacity/deep-reinforcement-learning#dependencies) to install all the dependencies Note that if you are running the code on Windows you might have trouble installing the box2d environnement you can solve this issue by using `pip install box2d` instead of `pip install gym[box2d]`.
+The instructions steps are taken from this [repo](https://github.com/udacity/deep-reinforcement-learning#dependencies) and this [section](https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet).
 
-Then follow the instructions on this [section](https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet).
+1) Create (and activate) a new environment with Python 3.6.
+- Linux/Mac
+```shell
+conda create --name drlnd python=3.6
+source activate drlnd
+```
+- Windows
+```shell
+conda create --name drlnd python=3.6 
+activate drlnd
+```
+2) If running in Windows, ensure you have the "Build Tools for Visual Studio 2019" installed from this [site](https://visualstudio.microsoft.com/downloads/). This [article](https://towardsdatascience.com/how-to-install-openai-gym-in-a-windows-environment-338969e24d30) may also be very helpful. This was confirmed to work in Windows 10 Home.
+3) Follow the instructions in this repository to perform a minimal install of OpenAI gym and install classic control and box2d linked to gym (instructions are on the same page).
+Note: You might have trouble installing box2d on Windows try `pip install box2d` inspite of `pip install gym[box2d]`
+4) Execute those lines:
+```shell
+git clone https://github.com/udacity/deep-reinforcement-learning.git
+cd deep-reinforcement-learning/python
+pip install .
+```
+5) Create an IPython kernel for the drlnd environment.
+```shell
+python -m ipykernel install --user --name drlnd --display-name "drlnd"
+```
+6) Download the Unity ML project environment
+- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
+- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip)
+- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86.zip)
+- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86_64.zip)
+7) Clone this repo and place the file in this GitHub Repository folder, and unzip (or decompress) the file.
+8) You're ready to run the code ! :) 
 
 ## Running the Code
 
