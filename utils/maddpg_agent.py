@@ -15,7 +15,7 @@ TAU = 1e-3              # for soft update of target parameters
 LR_ACTOR = 1e-3         # learning rate of the actor 
 LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0 # L2 weight decay
-
+UPDATE_EVERY = 1
 
 device = torch.device("cpu")
 
@@ -58,10 +58,12 @@ class Agent():
         """Save experience in replay memory, and use random sample from buffer to learn."""
         # Save experience / reward
         self.memory.add(state, action, reward, next_state, done)
-    
-        if len(self.memory) > BATCH_SIZE:
-            experiences = self.memory.sample()
-            self.learn(experiences, GAMMA)
+        self.u_step = (self.u_step + 1) % UPDATE_EVERY
+        
+        if len(self.memory) > BATCH_SIZE:            
+            if self.u_step == 0:
+                experiences = self.memory.sample()
+                self.learn(experiences, GAMMA)
 
     def act(self, state, add_noise=True):
         """Returns actions for given state as per current policy."""
@@ -138,24 +140,27 @@ class Agent():
 class OUNoise:
     """Ornstein-Uhlenbeck process."""
 
-    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.05):
+    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.05, noise_decrease=0.99):
         """Initialize parameters and noise process."""
         self.mu = mu * np.ones(size)
         self.theta = theta
         self.sigma = sigma
         self.seed = random.seed(seed)
+        self.ratio = noise_decrease
+        self.scale = 1
         self.reset()
 
     def reset(self):
         """Reset the internal state (= noise) to mean (mu)."""
         self.state = copy.copy(self.mu)
+        self.scale = self.scale*self.ratio
 
     def sample(self):
         """Update internal state and return it as a noise sample."""
         x = self.state
         dx = self.theta * (self.mu - x) + self.sigma * np.random.normal(size=self.mu.shape)
         self.state = x + dx
-        return self.state
+        return torch.tensor(self.state*self.scale).float()
 
 class ReplayBuffer:
     """Fixed-size buffer to store experience tuples."""
