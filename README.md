@@ -52,7 +52,11 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
 ## Running the Code
 
-After installing all the dependencies. You can head to the notebook and run the cells. Hyperparameters are configured so that the agent should obtain almost the same results as me.
+1) Launch Jupyter Notebook, be sure to select the drlnd kernel
+2) Run the Notebook named Tennis.ipynb
+3) You can then run each cells, the last one trains the agent.
+4) If you want to check/tweak hyperparameters, you can head to utils/maddpg_agent.py
+5) If you want to change the models architecture, you can find them in utils/model.py
 
 ## Method
 
